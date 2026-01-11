@@ -32,7 +32,6 @@ class PatientController extends Controller
     public function show($id)
     {
         // بنجيب المريض مع كل زياراته وروشتاته وتحاليله في Query واحدة (Eager Loading)
-        // ده بيبين إنك فاهمة Performance Optimization (N+1 Problem)
         $patient = Patient::findOrFail($id);
         $visits = $patient->visits()
     ->with([
